@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 public class calorieCounter {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner input = new Scanner(new File("C:\\Users\\zoggr\\OneDrive\\Big comp\\Dokumente\\VSS\\Git projects\\Advent-of-Code\\day01\\fileInput.txt"));
+        Scanner input = new Scanner(new File("day01\\fileInput.txt"));
         int max = 0;
         int max2 = 0;
         int max3 = 0;
