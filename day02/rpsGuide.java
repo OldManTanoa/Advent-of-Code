@@ -15,7 +15,7 @@ public class rpsGuide {
         int points;
         int pointTotal = 0;
 
-        while (input.hasNextLine()) {
+        while (input.hasNext()) {
             opponent = input.next();
             me = input.next();
 
