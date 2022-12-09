@@ -23,7 +23,7 @@ public class rpsGuide2 {
                     win = -1;
                     points = 3;
                 } else if (me.equals("Y")) {
-                    win = 3;
+                    win = 0;
                     points = 1;
                 }else {
                     win = 1;
@@ -42,16 +42,26 @@ public class rpsGuide2 {
                 }
             } else {
                 if (me.equals("X")) {
-                    win = 1;
-                    points = 1;
-                } else if (me.equals("Y")) {
                     win = -1;
                     points = 2;
+                } else if (me.equals("Y")) {
+                    win = 0;
+                    points = 3;
                 }else {
-                    win = 0;  
-                    points = 3;   
+                    win = 1;  
+                    points = 1;   
                 }
             }
+
+            if (win == 1) {
+                points += 6;
+            } else if (win == 0) {
+                points += 3;
+            }
+
+            totalPoints += points;
         }
+
+        System.out.println("Total points is: "+totalPoints);
     }
 }
