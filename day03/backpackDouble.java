@@ -2,7 +2,6 @@ package day03;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.FileStore;
 
 public class backpackDouble {
     
@@ -45,6 +44,7 @@ public class backpackDouble {
         }
 
         System.out.println("Total value is " + totalValue);
+        input.close();
     }
 
     public static void doubleItemSearch(File file) throws FileNotFoundException {
@@ -79,6 +79,7 @@ public class backpackDouble {
         }
 
         System.out.println("Total Value is "+totalValue);
+        input.close();
     }
 
     public static int converter(String s) {
