@@ -9,9 +9,9 @@ public class backpackDouble {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(new File("day03\\fileInput.txt"));
 
-        String currentBag, doubleItem, firstHalf, secondHalf;
+        String currentBag, doubleItem = "", firstHalf, secondHalf;
         String[] firstpart,secondpart;
-        int bagLength;
+        int bagLength, totalValue = 0, value = 0;
 
         while (input.hasNext()) {
             currentBag = input.next();
@@ -23,9 +23,21 @@ public class backpackDouble {
             secondpart = stringArray(secondHalf);
 
             for (int i = 0; i < firstpart.length; i++) {
-                if (firstpart[i].equals(secondPart[j]));
+                for (int j = 0; j < secondpart.length; j++) {
+                    if (firstpart[i].equals(secondpart[j])) {
+                        doubleItem = firstpart[i];
+                        j = secondpart.length;
+                        i = firstpart.length;
+                        System.out.println("Found item "+doubleItem);
+                    }
+                }
             }
+
+            value = converter(doubleItem);
+            totalValue += value;
         }
+
+        System.out.println("Total Value is "+totalValue);
     }
 
     public static int converter(String s) {
