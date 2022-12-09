@@ -7,7 +7,48 @@ import java.nio.file.FileStore;
 public class backpackDouble {
     
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner input = new Scanner(new File("day03\\fileInput.txt"));
+        //doubleItemSearch(new File("day03\\fileInput.txt"));
+        keySearch(new File("day03\\fileInput.txt"));
+    }
+
+    public static void keySearch(File file) throws FileNotFoundException {
+        Scanner input = new Scanner(file);
+
+        String bag1, doubleItem = "", bag2, bag3;
+        String[] bag1Array,bag2Array, bag3Array;
+        int totalValue = 0, value = 0;
+
+        while (input.hasNext()) {
+            bag1 = input.next();
+            bag2 = input.next();
+            bag3 = input.next();
+
+            bag1Array = stringArray(bag1);
+            bag2Array = stringArray(bag2);
+            bag3Array = stringArray(bag3);
+
+            for (int i = 0; i < bag1Array.length; i++) {
+                for (int j = 0; j < bag2Array.length; j++) {
+                    for (int k = 0; k < bag3Array.length; k++) {
+                        if (bag1Array[i].equals(bag2Array[j]) && bag2Array[j].equals(bag3Array[k])) {
+                            doubleItem = bag1Array[i];
+                            i = bag1Array.length;
+                            j = bag2Array.length;
+                            k = bag3Array.length;
+                        }
+                    }
+                }
+            }
+
+            value = converter(doubleItem);
+            totalValue += value;
+        }
+
+        System.out.println("Total value is " + totalValue);
+    }
+
+    public static void doubleItemSearch(File file) throws FileNotFoundException {
+        Scanner input = new Scanner(file);
 
         String currentBag, doubleItem = "", firstHalf, secondHalf;
         String[] firstpart,secondpart;
