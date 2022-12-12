@@ -8,6 +8,7 @@ public class pairAssignment {
 
     public static void main(String[] args) throws FileNotFoundException {
         pairAmount(new File("day04\\fileInput.txt"));
+        overlaps(new File("day04\\fileInput.txt"));
     }
 
     public static void pairAmount(File file) throws FileNotFoundException {
@@ -26,6 +27,29 @@ public class pairAssignment {
             }
         }
 
+        input.close();
+        System.out.println("Amount is " + counter);
+    }
+
+    public static void overlaps(File file) throws FileNotFoundException {
+        Scanner input = new Scanner(file);
+
+        String line;
+        int counter = 0;
+
+        while (input.hasNext()) {
+            line = input.next();
+
+            int[] segments = converter(line);
+
+            if (segments[0] <= segments[2] && segments[1] >= segments[2]) {
+                counter++;
+            } else if (segments[2] <= segments[0] && segments[3] >= segments[0]) {
+                counter++;
+            }
+        }
+
+        input.close();
         System.out.println("Amount is " + counter);
     }
 
