@@ -21,7 +21,7 @@ public class pairAssignment {
 
             int[] segments = converter(line);
 
-            if (segments[0] <= segments[2] && segments[1] >= segments[3]) {
+            if ((segments[0] <= segments[2] && segments[1] >= segments[3]) || (segments[0] >= segments[2] && segments[1] <= segments[3])) {
                 counter++;
             }
         }
@@ -87,11 +87,11 @@ public class pairAssignment {
             result[2] += val;
         }
 
-        for (int i = dashMark + 1; i < breakMark; i++) {
+        for (int i = dashMark + 1; i < tmp.length; i++) {
             reader = new Scanner(tmp[i]);
 
             String valString = reader.next();
-            int val = (int) (Integer.parseInt(valString) * Math.pow(10, (breakMark - 1 - i)));
+            int val = (int) (Integer.parseInt(valString) * Math.pow(10, (tmp.length - 1 - i)));
             result[3] += val;
         }
 
