@@ -1,5 +1,7 @@
 package day05;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,14 +16,47 @@ public class craneSim {
         Scanner input = new Scanner(file);
         String[] platform;
         String line;
-        int a = 1;
 
-        while(a == 1) {
-            line = input.nextLine();
-            System.out.println(line);
-            a= 0;
+        while((line = input.nextLine()).charAt(1) != '1') {
+            continue;
         }
+        
+        int stackNumber = line.split("   ").length;
+
+        input.reset();
 
         return "";
+    }
+}
+
+class Stacks {
+    ArrayList<LinkedList<String>> stacks;
+
+    Stacks(int size) {
+        stacks = new ArrayList<LinkedList<String>>();
+        
+        for (int i = 0; i < size; i++) {
+            stacks.add(new LinkedList<String>());
+        }
+    }
+
+    void move(int from, int to) {
+        String moved = stacks.get(from).removeLast();
+
+        stacks.get(to).addLast(moved);
+    }
+
+    void add(int to, String added) {
+        stacks.get(to).addLast(added);
+    }
+
+    String getSol() {
+        String result = "";
+
+        for (LinkedList<String> current : stacks) {
+            result = ""+result+current.removeLast();
+        }
+
+        return result;
     }
 }
