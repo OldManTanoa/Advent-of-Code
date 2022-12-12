@@ -16,15 +16,28 @@ public class craneSim {
         Scanner input = new Scanner(file);
         String[] platform;
         String line;
+        int highest = 0;
 
         while((line = input.nextLine()).charAt(1) != '1') {
+            highest++;
             continue;
         }
-        
+
         int stackNumber = line.split("   ").length;
 
         input.reset();
 
+        Stacks stack = new Stacks(stackNumber);
+
+        //how?
+        while (input.hasNextLine() && (line = input.nextLine()).charAt(1) != '1') {
+			for (int i = 0; i < stackNumber; i++) {
+				String toAdd = line.substring(1+4*i, 2+4*i);
+				if (!toAdd.equals(" ")) {
+					stack.stacks.get(i).addLast(toAdd);
+				}
+			}
+		}
         return "";
     }
 }
