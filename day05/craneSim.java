@@ -25,7 +25,7 @@ public class craneSim {
 
         int stackNumber = line.split("   ").length;
 
-        input.reset();
+        input = new Scanner(file);
 
         Stacks stack = new Stacks(stackNumber);
 
@@ -37,7 +37,8 @@ public class craneSim {
 				}
 			}
 		}
-        return "";
+        
+        return stack.getSol();
     }
 }
 
@@ -66,7 +67,7 @@ class Stacks {
         String result = "";
 
         for (LinkedList<String> current : stacks) {
-            result = ""+result+current.removeLast();
+            result = ""+result+current.removeFirst();
         }
 
         return result;
