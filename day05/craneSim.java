@@ -29,7 +29,6 @@ public class craneSim {
 
         Stacks stack = new Stacks(stackNumber);
 
-        //how?
         while (input.hasNextLine() && (line = input.nextLine()).charAt(1) != '1') {
 			for (int i = 0; i < stackNumber; i++) {
 				String toAdd = line.substring(1+4*i, 2+4*i);
