@@ -41,7 +41,7 @@ public class craneSim {
         //skip a line
         input.nextLine();
         
-        while (input.hasNextLine()) {
+        while (input.hasNext()) {
             //skip move
             input.next();
             int amount = input.nextInt();
