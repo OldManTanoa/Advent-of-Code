@@ -38,6 +38,24 @@ public class craneSim {
 			}
 		}
         
+        //skip a line
+        input.nextLine();
+        
+        while (input.hasNextLine()) {
+            //skip move
+            input.next();
+            int amount = input.nextInt();
+            //skip from
+            input.next();
+            int from = input.nextInt();
+            //skip to
+            input.next();
+            int to = input.nextInt();
+
+            for (int i = 0; i < amount; i++) {
+                stack.move(from-1, to-1);
+            }
+        }
         return stack.getSol();
     }
 }
