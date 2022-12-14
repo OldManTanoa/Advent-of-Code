@@ -16,15 +16,14 @@ public class craneSim {
     public static String topOfStack(File file) throws FileNotFoundException {
         Scanner input = new Scanner(file);
         String line;
-        int highest = 0;
 
         while((line = input.nextLine()).charAt(1) != '1') {
-            highest++;
             continue;
         }
 
         int stackNumber = line.split("   ").length;
 
+        input.close();
         input = new Scanner(file);
 
         Stacks stack = new Stacks(stackNumber);
@@ -65,15 +64,14 @@ public class craneSim {
     public static String topOfStack2(File file) throws FileNotFoundException {
         Scanner input = new Scanner(file);
         String line;
-        int highest = 0;
-
+        
         while((line = input.nextLine()).charAt(1) != '1') {
-            highest++;
             continue;
         }
 
         int stackNumber = line.split("   ").length;
 
+        input.close();
         input = new Scanner(file);
 
         Stacks stack = new Stacks(stackNumber);
